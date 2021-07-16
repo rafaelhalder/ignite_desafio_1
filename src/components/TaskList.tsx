@@ -15,19 +15,24 @@ export function TaskList() {
   const [newTaskTitle, setNewTaskTitle] = useState('');
 
   function handleCreateNewTask() {
+    // Crie uma nova task com um id random, não permita criar caso o título seja vazio.
 
-    if(newTaskTitle){
+    //criar condição para aceitar apenas com titulo preenchido
+    if(newTaskTitle) {
 
+      //criar nova const para receber os valores "immutable"
       const newTasks = {
         title: newTaskTitle,
         id: Math.random(),
-        isComplete:false,
-      } 
+        isComplete:false
+      }
+      //inserir novos valores na const criada
+
       setTasks(previewTasks => [...previewTasks, newTasks]);
-      setNewTaskTitle('');
+      //resetar input
+      setNewTaskTitle('')
     }
 
-    // Crie uma nova task com um id random, não permita criar caso o título seja vazio.
   }
 
   function handleToggleTaskCompletion(id: number) {
